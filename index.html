@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Wiki Direct</title>
     <style>
-        /* Bauhaus Reset: Clean, geometric, functional */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #111111;
@@ -15,18 +14,16 @@
             line-height: 1.6;
         }
 
-        /* Header: Larger logo, clean space */
         nav {
             padding: 40px 5vw;
             display: flex;
             align-items: center;
         }
         nav img { 
-            width: 90px; /* Increased logo size */
-            border-radius: 4px; /* Slight softening */
+            width: 90px; 
+            border-radius: 4px; 
         }
 
-        /* The Grid: Perfect 50/50 balance */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -36,10 +33,7 @@
             min-height: 65vh;
         }
 
-        /* Typography: Strong, structured, readable */
-        .text-section {
-            max-width: 600px;
-        }
+        .text-section { max-width: 600px; }
         .title-text {
             font-size: clamp(3rem, 5vw, 5rem);
             font-weight: 700;
@@ -48,16 +42,13 @@
             margin-bottom: 30px;
             color: #ffffff;
         }
-        .title-text span {
-            color: #90D5FF; /* The extension's light blue as the geometric accent */
-        }
+        .title-text span { color: #90D5FF; }
         .description p {
             font-size: 1.1rem;
             color: #aaaaaa;
             margin-bottom: 24px;
         }
 
-        /* Form Follows Function Button */
         .install-btn {
             display: inline-block;
             margin-top: 10px;
@@ -71,30 +62,82 @@
             border: none;
             transition: background-color 0.2s;
         }
-        .install-btn:hover {
-            background-color: #ffffff;
-        }
+        .install-btn:hover { background-color: #ffffff; }
 
-        /* The Image: Properly sized with geometric shadow */
+        /* --- INTERACTIVE DEMO IMAGE WRAPPER --- */
         .demo-container {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
-        .demo-image {
-            width: 85%; /* Keeps it fully visible inside the grid */
-            height: auto;
+        
+        .image-wrapper {
+            position: relative;
+            width: 85%;
             border: 3px solid #eeeeee;
-            box-shadow: 15px 15px 0px #90D5FF; /* Bauhaus solid-block shadow */
-            transform: rotate(-3deg); /* The tilt you liked! */
-            transition: transform 0.3s ease;
+            box-shadow: 15px 15px 0px #90D5FF;
+            transform: rotate(-3deg);
+            transition: transform 0.4s ease;
+            cursor: crosshair; /* Makes it feel interactive */
         }
-        .demo-image:hover {
+        
+        .demo-image {
+            width: 100%;
+            height: auto;
+            display: block; /* Removes bottom gap */
+        }
+
+        /* The image un-tilts when hovered */
+        .image-wrapper:hover {
             transform: rotate(0deg);
         }
 
-        /* Deployment Instructions: Clean schematic layout */
+        /* --- THE MOCK EXTENSION POPUP --- */
+        .mock-popup {
+            position: absolute;
+            /* Positions it roughly over a word in the image */
+            top: 40%; 
+            left: 50%;
+            background-color: #90D5FF;
+            border: 2px solid #7cbbe4;
+            border-radius: 3px;
+            width: 50px; /* Scaled up so you can see it clearly */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Hidden by default, slow fade transition */
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        /* Fades in when the image is hovered */
+        .image-wrapper:hover .mock-popup {
+            opacity: 1;
+        }
+
+        /* The Neon rotating '&' */
+        .mock-amp {
+            font-size: 28px;
+            font-weight: 900;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #a200ff, #ff007f, #ffea00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: spinY 2s linear infinite;
+        }
+
+        @keyframes spinY {
+            from { transform: perspective(200px) rotateY(0deg); }
+            to { transform: perspective(200px) rotateY(360deg); }
+        }
+        /* -------------------------------------- */
+
         .setup-section {
             padding: 80px 5vw;
             background-color: #0a0a0a;
@@ -114,7 +157,6 @@
             gap: 40px;
         }
         .step {
-            /* Bauhaus classic: thick top border to anchor the text */
             border-top: 4px solid #90D5FF; 
             padding-top: 15px;
         }
@@ -136,12 +178,11 @@
             border-radius: 2px;
         }
 
-        /* Responsive constraints for smaller screens */
         @media (max-width: 900px) {
             .content-grid { grid-template-columns: 1fr; text-align: center; }
             .text-section { margin: 0 auto; }
             .demo-container { margin-top: 50px; }
-            .demo-image { width: 90%; }
+            .image-wrapper { width: 90%; }
         }
     </style>
 </head>
@@ -164,7 +205,15 @@
         </div>
 
         <div class="demo-container">
-            <img src="demo.png" alt="Extension Demo" class="demo-image">
+            <!-- The Interactive Image Wrapper -->
+            <div class="image-wrapper">
+                <img src="demo.png" alt="Extension Demo" class="demo-image">
+                
+                <!-- The Mock Extension Popup that fades in on hover -->
+                <div class="mock-popup">
+                    <span class="mock-amp">&</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -177,15 +226,15 @@
             </div>
             <div class="step">
                 <div class="step-num">02. Access</div>
-                <div class="step-text">Launch Firefox and navigate to <span class="hl">about:debugging</span> in the URL bar.</div>
+                <div class="step-text">Launch Firefox and navigate to <span class="hl">"about:debugging"</span> in the URL bar.</div>
             </div>
             <div class="step">
                 <div class="step-num">03. Target</div>
-                <div class="step-text">Select <strong>This Firefox</strong> from the sidebar, then click <strong>Load Temporary Add-on</strong>.</div>
+                <div class="step-text">Select <strong>"This Firefox"</strong> from the sidebar, then click <strong>"Load Temporary Add-on"</strong>.</div>
             </div>
             <div class="step">
                 <div class="step-num">04. Inject</div>
-                <div class="step-text">Select the <span class="hl">manifest.json</span> file to inject the extension into your browser.</div>
+                <div class="step-text">Select the <span class="hl">"manifest.json"</span> file to inject the extension into your browser.</div>
             </div>
         </div>
     </div>
