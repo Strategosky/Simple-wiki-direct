@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f6f6f6;
-            color: #333;
+            background-color: #121212; /* Deep dark background */
+            color: #e0e0e0; /* Soft light text for readability */
             text-align: center;
             padding: 50px 20px;
             line-height: 1.6;
@@ -16,19 +16,25 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
+            background: #1e1e1e; /* Slightly lighter dark container */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border: 1px solid #333;
         }
         img.logo {
             width: 120px;
             border-radius: 10px;
         }
-        h1 { color: #000; }
+        h1 { color: #ffffff; }
+        p { 
+            color: #cccccc; 
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
         .install-btn {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 12px 24px;
             background-color: #0078D7;
             color: white;
@@ -36,17 +42,36 @@
             border-radius: 5px;
             font-weight: bold;
             font-size: 16px;
+            transition: background-color 0.2s;
         }
         .install-btn:hover { background-color: #005A9E; }
         .instructions {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: left;
-            background: #f9f9f9;
-            padding: 15px;
+            background: #2a2a2a; /* Dark gray for the instruction box */
+            padding: 20px;
             border-radius: 8px;
             font-size: 14px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
         }
+        .instructions strong {
+            color: #ffffff;
+            font-family: monospace; /* Gives it a terminal/code look */
+            font-size: 15px;
+            display: block;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        code {
+            background: #111;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #90D5FF; /* Uses the same light blue from your extension! */
+        }
+        li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
@@ -55,19 +80,21 @@
         <img src="logo.png" alt="Simple Wiki Direct Logo" class="logo">
         
         <h1>Simple Wiki Direct</h1>
-        <p>A lightweight browser extension that seamlessly connects complex Wikipedia articles to their "Simple English" counterparts.</p>
         
-        <!-- This button downloads the main branch of your repo as a ZIP file -->
+        <p>This project exists to unlock the full potential of Wikipedia's "Simple English" articles. Standard Wikipedia links often lead to highly detailed, lengthy pages that can easily distract from your main reading when you only need a brief overview.</p>
+        
+        <p>Use this extension to display a subtle popup over standard Wikipedia links. With one click, you are directed to the concise, easy-to-read "Simple" version of that topic without breaking your focus. Happy reading.</p>
+        
         <a href="https://github.com/strategosky/Simple-wiki-direct/archive/refs/heads/main.zip" class="install-btn">Download Extension (ZIP)</a>
 
         <div class="instructions">
-            <strong>🛠 How to install in Firefox:</strong>
+            <strong>>_ SYSTEM SETUP / INSTALLATION</strong>
             <ol>
                 <li>Click the download button above and unzip the folder.</li>
                 <li>Open Firefox and type <code>about:debugging</code> in the URL bar.</li>
                 <li>Click <strong>This Firefox</strong> on the left menu.</li>
                 <li>Click <strong>Load Temporary Add-on...</strong></li>
-                <li>Select the <code>manifest.json</code> file from your unzipped folder!</li>
+                <li>Select the <code>manifest.json</code> file from your unzipped folder.</li>
             </ol>
         </div>
     </div>
