@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Wiki Direct",
+  "version": "1.0",
+  "description": "Shows an animated '&' on Wikipedia links. Clicks direct to Simple English Wikipedia if available.",
+  "icons": {
+    "48": "logo.png",
+    "96": "logo.png",
+    "128": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.wikipedia.org/*"],
+      "css": ["style.css"],
+      "js": ["content.js"]
+    }
+  ]
+}

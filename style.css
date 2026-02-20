@@ -1,0 +1,46 @@
+/* The static Light Blue Square Box */
+#simple-wiki-btn {
+  position: absolute;
+  background-color: #90D5FF; /* Your requested light blue */
+  border: 1px solid #7cbbe4; /* Slightly darker border for depth */
+  border-radius: 2px; /* Very slight rounding, looks better than pure sharp edges */
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999999; 
+  opacity: 0;      
+  pointer-events: none; 
+  
+  transition: opacity 1.5s ease-out;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.2); /* Soft shadow so it pops off the page */
+}
+
+#simple-wiki-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease-in; 
+}
+
+/* The Rotating Neon '&' inside the box */
+#simple-wiki-amp {
+  font-size: 16px;
+  font-weight: 900;
+  font-family: sans-serif;
+  display: inline-block; /* Necessary for transforms to work on text */
+  
+  /* The Purplish, Pinkish, Yellow Neon Gradient applied to TEXT */
+  background: linear-gradient(135deg, #a200ff, #ff007f, #ffea00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* The Y-Axis 3D Rotation */
+  animation: spinY 2s linear infinite;
+}
+
+@keyframes spinY {
+  from { transform: perspective(200px) rotateY(0deg); }
+  to { transform: perspective(200px) rotateY(360deg); }
+}
