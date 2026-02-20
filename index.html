@@ -11,6 +11,7 @@
             color: #333;
             text-align: center;
             padding: 50px 20px;
+            line-height: 1.6;
         }
         .container {
             max-width: 600px;
@@ -24,39 +25,51 @@
             width: 120px;
             border-radius: 10px;
         }
-        h1 {
-            color: #000;
-        }
+        h1 { color: #000; }
         .install-btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #0078D7;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            font-size: 16px;
         }
-        .install-btn:hover {
-            background-color: #005A9E;
+        .install-btn:hover { background-color: #005A9E; }
+        .instructions {
+            margin-top: 30px;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- It will use your exact extension logo on the website! -->
         <img src="logo.png" alt="Simple Wiki Direct Logo" class="logo">
         
         <h1>Simple Wiki Direct</h1>
-        <p>A browser extension that instantly checks if a Wikipedia article has a "Simple English" version.</p>
+        <p>A lightweight browser extension that seamlessly connects complex Wikipedia articles to their "Simple English" counterparts.</p>
         
-        <!-- Placeholder for your future content -->
-        <div id="custom-content">
-            <p><em>(Your custom content will go here!)</em></p>
-        </div>
+        <!-- This button downloads the main branch of your repo as a ZIP file -->
+        <a href="https://github.com/strategosky/Simple-wiki-direct/archive/refs/heads/main.zip" class="install-btn">Download Extension (ZIP)</a>
 
-        <a href="#" class="install-btn">Download for Firefox</a>
+        <div class="instructions">
+            <strong>🛠 How to install in Firefox:</strong>
+            <ol>
+                <li>Click the download button above and unzip the folder.</li>
+                <li>Open Firefox and type <code>about:debugging</code> in the URL bar.</li>
+                <li>Click <strong>This Firefox</strong> on the left menu.</li>
+                <li>Click <strong>Load Temporary Add-on...</strong></li>
+                <li>Select the <code>manifest.json</code> file from your unzipped folder!</li>
+            </ol>
+        </div>
     </div>
 
 </body>
