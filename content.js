@@ -85,3 +85,4 @@ btn.addEventListener('click', (e) => {
         btn.classList.remove('visible');
     }
 });
+// Core extension logic
