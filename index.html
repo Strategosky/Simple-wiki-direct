@@ -5,190 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Wiki Direct</title>
     <style>
-        /* Base Reset & Brutalist Dark Theme */
+        /* Bauhaus Reset: Clean, geometric, functional */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background-color: #111111;
+            color: #eeeeee;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Top Navigation Bar */
+        /* Header: Larger logo, clean space */
         nav {
-            padding: 30px 5vw;
+            padding: 40px 5vw;
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
-        nav img { width: 60px; filter: grayscale(100%) contrast(200%); }
-        nav .nav-text { color: #555; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; }
-
-        /* Massive Typography Hero Section */
-        .hero { padding: 0 5vw; margin-top: 2vh; }
-        .massive-text {
-            font-size: clamp(4rem, 14vw, 16rem);
-            font-weight: 900;
-            line-height: 0.82;
-            color: #444; /* Suryansh's signature grey */
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-            margin-bottom: 40px;
+        nav img { 
+            width: 90px; /* Increased logo size */
+            border-radius: 4px; /* Slight softening */
         }
 
-        /* Content Grid (Text left, Image right) */
+        /* The Grid: Perfect 50/50 balance */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
             padding: 0 5vw;
-            margin-top: 40px;
-            align-items: start;
+            align-items: center;
+            min-height: 65vh;
         }
 
-        .description {
-            color: #a0a0a0;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            max-width: 500px;
+        /* Typography: Strong, structured, readable */
+        .text-section {
+            max-width: 600px;
         }
-        .description p { margin-bottom: 20px; }
+        .title-text {
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .title-text span {
+            color: #90D5FF; /* The extension's light blue as the geometric accent */
+        }
+        .description p {
+            font-size: 1.1rem;
+            color: #aaaaaa;
+            margin-bottom: 24px;
+        }
 
-        /* Sharp Brutalist Button */
+        /* Form Follows Function Button */
         .install-btn {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 16px 32px;
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
+            background-color: #90D5FF;
+            color: #111111;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.2s ease;
-            cursor: pointer;
+            letter-spacing: 1px;
+            border: none;
+            transition: background-color 0.2s;
         }
         .install-btn:hover {
             background-color: #ffffff;
-            color: #0a0a0a;
         }
 
-        /* The Comicy / Neo-Brutalist Demo Image */
+        /* The Image: Properly sized with geometric shadow */
         .demo-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
-        .comic-image {
-            max-width: 100%;
+        .demo-image {
+            width: 85%; /* Keeps it fully visible inside the grid */
             height: auto;
-            border: 4px solid #ffffff;
-            /* Sharp, solid shadow gives the comic book panel look */
-            box-shadow: 16px 16px 0px #444; 
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #eeeeee;
+            box-shadow: 15px 15px 0px #90D5FF; /* Bauhaus solid-block shadow */
+            transform: rotate(-3deg); /* The tilt you liked! */
+            transition: transform 0.3s ease;
         }
-        .comic-image:hover {
+        .demo-image:hover {
             transform: rotate(0deg);
-            box-shadow: 8px 8px 0px #444;
         }
 
-        /* Redesigned deployment instructions */
+        /* Deployment Instructions: Clean schematic layout */
         .setup-section {
-            padding: 100px 5vw;
-            margin-top: 80px;
+            padding: 80px 5vw;
+            background-color: #0a0a0a;
             border-top: 1px solid #222;
         }
         .setup-header {
-            font-size: 1rem;
-            color: #666;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 40px;
+            font-weight: bold;
         }
         .step-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
         }
         .step {
-            border-left: 2px solid #333;
-            padding-left: 20px;
+            /* Bauhaus classic: thick top border to anchor the text */
+            border-top: 4px solid #90D5FF; 
+            padding-top: 15px;
         }
         .step-num {
-            font-family: monospace;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #ffffff;
             font-weight: bold;
             margin-bottom: 10px;
         }
         .step-text {
-            color: #888;
-            font-size: 1rem;
-            line-height: 1.5;
+            color: #888888;
+            font-size: 0.95rem;
         }
         .hl {
-            background: #222;
-            color: #ddd;
+            background: #222222;
+            color: #90D5FF;
             padding: 2px 6px;
             font-family: monospace;
-            font-size: 0.9rem;
+            border-radius: 2px;
         }
 
-        /* Mobile Responsiveness */
+        /* Responsive constraints for smaller screens */
         @media (max-width: 900px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .demo-container { margin-top: 40px; }
+            .content-grid { grid-template-columns: 1fr; text-align: center; }
+            .text-section { margin: 0 auto; }
+            .demo-container { margin-top: 50px; }
+            .demo-image { width: 90%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <img src="logo.png" alt="Logo">
-        <span class="nav-text">Project / 01</span>
+        <img src="logo.png" alt="Simple Wiki Direct Logo">
     </nav>
 
-    <div class="hero">
-        <div class="massive-text">
-            SIMPLE<br>WIKI<br>DIRECT
-        </div>
-    </div>
-
     <div class="content-grid">
-        <div class="description">
-            <p>This project exists to unlock the full potential of Wikipedia's "Simple English" articles. Standard Wikipedia links often lead to highly detailed, lengthy pages that easily distract from your main reading when you only need a brief overview.</p>
-            <p>Use this extension to display a subtle popup over standard Wikipedia links. With one click, you are directed to the concise, easy-to-read "Simple" version of that topic without breaking your focus. Happy reading.</p>
+        <div class="text-section">
+            <h1 class="title-text">Simple<br>Wiki <span>Direct.</span></h1>
             
-            <a href="https://github.com/strategosky/Simple-wiki-direct/archive/refs/heads/main.zip" class="install-btn">Download Source</a>
+            <div class="description">
+                <p>This project exists to unlock the full potential of Wikipedia's "Simple English" articles. Standard Wikipedia links often lead to highly detailed, lengthy pages that easily distract from your main reading when you only need a brief overview.</p>
+                <p>Use this extension to display a subtle popup over standard Wikipedia links. With one click, you are directed to the concise, easy-to-read "Simple" version of that topic without breaking your focus. Happy reading.</p>
+            </div>
+            
+            <a href="https://github.com/strategosky/Simple-wiki-direct/archive/refs/heads/main.zip" class="install-btn">Download Archive</a>
         </div>
 
         <div class="demo-container">
-            <!-- Your new demo image goes here -->
-            <img src="demo.png" alt="Extension Demo" class="comic-image">
+            <img src="demo.png" alt="Extension Demo" class="demo-image">
         </div>
     </div>
 
     <div class="setup-section">
-        <div class="setup-header">Deployment Protocol</div>
+        <div class="setup-header">Installation Details</div>
         <div class="step-grid">
             <div class="step">
-                <div class="step-num">01</div>
-                <div class="step-text">Extract the downloaded repository archive to your local machine.</div>
+                <div class="step-num">01. Extract</div>
+                <div class="step-text">Download the archive and extract the directory to your local filesystem.</div>
             </div>
             <div class="step">
-                <div class="step-num">02</div>
+                <div class="step-num">02. Access</div>
                 <div class="step-text">Launch Firefox and navigate to <span class="hl">about:debugging</span> in the URL bar.</div>
             </div>
             <div class="step">
-                <div class="step-num">03</div>
-                <div class="step-text">Select <strong>This Firefox</strong> from the sidebar menu.</div>
+                <div class="step-num">03. Target</div>
+                <div class="step-text">Select <strong>This Firefox</strong> from the sidebar, then click <strong>Load Temporary Add-on</strong>.</div>
             </div>
             <div class="step">
-                <div class="step-num">04</div>
-                <div class="step-text">Click <strong>Load Temporary Add-on...</strong> and target the <span class="hl">manifest.json</span> file to inject the extension.</div>
+                <div class="step-num">04. Inject</div>
+                <div class="step-text">Select the <span class="hl">manifest.json</span> file to inject the extension into your browser.</div>
             </div>
         </div>
     </div>
